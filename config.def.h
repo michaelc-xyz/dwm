@@ -7,26 +7,26 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Anonymous Pro:style=Regular:size=12" };
 static const char dmenufont[]       = "Anonymous Pro:style=Regular:size=12";
-static const char col_black[]       = "#000000";
-static const char col_red[]         = "#ff0000";
-static const char col_green[]       = "#00ff00";
-static const char col_yellow[]      = "#ffff00";
-static const char col_blue[]        = "#0000ff";
-static const char col_magenta[]     = "#ff00ff";
-static const char col_cyan[]        = "#00ffff";
-static const char col_white[]       = "#888888";
-static const char col_black_2[]     = "#333333";
-static const char col_red_2[]       = "#ff8888";
-static const char col_green_2[]     = "#88ff88";
-static const char col_yellow_2[]    = "#ffff88";
-static const char col_blue_2[]      = "#8888ff";
-static const char col_magenta_2[]   = "#ff88ff";
-static const char col_cyan_2[]      = "#88ffff";
-static const char col_white_2[]     = "#cccccc";
+static const char col_black[]       = "#101010";
+static const char col_red[]         = "#d03030";
+static const char col_green[]       = "#30d030";
+static const char col_yellow[]      = "#d0d030";
+static const char col_blue[]        = "#3030d0";
+static const char col_magenta[]     = "#d030d0";
+static const char col_cyan[]        = "#30d0d0";
+static const char col_white[]       = "#d0d0d0";
+static const char col_black_2[]     = "#303030";
+static const char col_red_2[]       = "#f06060";
+static const char col_green_2[]     = "#60f060";
+static const char col_yellow_2[]    = "#f0f060";
+static const char col_blue_2[]      = "#6060f0";
+static const char col_magenta_2[]   = "#f060f0";
+static const char col_cyan_2[]      = "#60f0f0";
+static const char col_white_2[]     = "#f0f0f0";
 static const char *colors[][3]      = {
 	/*               fg           bg            border   */
-	[SchemeNorm] = { col_yellow,   col_blue,    col_black_2 },
-	[SchemeSel]  = { col_red,    col_white_2,   col_white_2 },
+	[SchemeNorm] = { col_white,   col_black,    col_black_2 },
+	[SchemeSel]  = { col_white,   col_white,    col_white },
 };
 
 /* tagging */
