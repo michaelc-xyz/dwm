@@ -5,17 +5,28 @@ static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=10" };
-static const char dmenufont[]       = "monospace:size=10";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
+static const char *fonts[]          = { "Anonymous Pro:style=Regular:size=12" };
+static const char dmenufont[]       = "Anonymous Pro:style=Regular:size=12";
+static const char col_black[]       = "#101010";
+static const char col_red[]         = "#d03030";
+static const char col_green[]       = "#30d030";
+static const char col_yellow[]      = "#d0d030";
+static const char col_blue[]        = "#3030d0";
+static const char col_magenta[]     = "#d030d0";
+static const char col_cyan[]        = "#30d0d0";
+static const char col_white[]       = "#d0d0d0";
+static const char col_black_2[]     = "#303030";
+static const char col_red_2[]       = "#f06060";
+static const char col_green_2[]     = "#60f060";
+static const char col_yellow_2[]    = "#f0f060";
+static const char col_blue_2[]      = "#6060f0";
+static const char col_magenta_2[]   = "#f060f0";
+static const char col_cyan_2[]      = "#60f0f0";
+static const char col_white_2[]     = "#f0f0f0";
 static const char *colors[][3]      = {
-	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	/*               fg           bg            border   */
+	[SchemeNorm] = { col_white,   col_black,    col_black_2 },
+	[SchemeSel]  = { col_black,   col_white,    col_white },
 };
 
 /* tagging */
@@ -27,8 +38,9 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+
+  { NULL,     NULL,       NULL,       0,            NULL,           NULL },
+
 };
 
 /* layout(s) */
@@ -44,7 +56,7 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
-#define MODKEY Mod1Mask
+#define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -56,13 +68,15 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_black, "-nf", col_white, "-sb", col_white, "-sf", col_black, NULL };
 static const char *termcmd[]  = { "st", NULL };
+static const char *browsercmd[]  = { "chromium", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_g,      spawn,          {.v = browsercmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
